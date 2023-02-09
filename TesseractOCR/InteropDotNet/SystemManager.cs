@@ -54,7 +54,7 @@ namespace TesseractOCR.InteropDotNet
         #region GetOperatingSystem
         public static OperatingSystem GetOperatingSystem()
         {
-#if(NETCORE)
+// #if(NETCORE)
             if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 return OperatingSystem.Windows;
             if(RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
@@ -63,27 +63,27 @@ namespace TesseractOCR.InteropDotNet
                 return OperatingSystem.MacOSX;
             
             return OperatingSystem.Unknown;
-#else
-            var pid = (int)Environment.OSVersion.Platform;
-            switch (pid)
-            {
-                case (int)PlatformID.Win32NT:
-                case (int)PlatformID.Win32S:
-                case (int)PlatformID.Win32Windows:
-                case (int)PlatformID.WinCE:
-                    return OperatingSystem.Windows;
-
-                case (int)PlatformID.Unix:
-                case 128:
-                    return OperatingSystem.Unix;
-
-                case (int)PlatformID.MacOSX:
-                    return OperatingSystem.MacOSX;
-
-                default:
-                    return OperatingSystem.Unknown;
-            }
-#endif
+// #else
+//             var pid = (int)Environment.OSVersion.Platform;
+//             switch (pid)
+//             {
+//                 case (int)PlatformID.Win32NT:
+//                 case (int)PlatformID.Win32S:
+//                 case (int)PlatformID.Win32Windows:
+//                 case (int)PlatformID.WinCE:
+//                     return OperatingSystem.Windows;
+//
+//                 case (int)PlatformID.Unix:
+//                 case 128:
+//                     return OperatingSystem.Unix;
+//
+//                 case (int)PlatformID.MacOSX:
+//                     return OperatingSystem.MacOSX;
+//
+//                 default:
+//                     return OperatingSystem.Unknown;
+//             }
+// #endif
         }
         #endregion
     }

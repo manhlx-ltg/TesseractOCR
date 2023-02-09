@@ -80,8 +80,11 @@ namespace TesseractOCR.InteropDotNet
                         break;
 
                     case OperatingSystem.MacOSX:
-                        Logger.LogError(notSupported);
-                        throw new NotSupportedException(notSupported);
+                        Logger.LogInformation("Current OS is MacOSX");
+                        _instance = new LibraryLoader(new UnixLibraryLoaderLogic());
+                        break;
+                        // Logger.LogError(notSupported);
+                        // throw new NotSupportedException(notSupported);
 
                     case OperatingSystem.Unknown:
                     default:
